@@ -1,0 +1,21 @@
+type Post {
+    id: Int!
+    content: String!
+   	comments: [Comment]!
+}
+ 
+type Comment {
+    id: Int!
+    content: String!
+}
+ 
+# The Root Query for the application
+type Query {
+    posts(count: Int):[Post]
+	post(id: ID):Post
+}
+ 
+# The Root Mutation for the application
+#type Mutation {
+#    writePost(content: String!) : Post!
+#}
