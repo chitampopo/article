@@ -16,6 +16,8 @@ type Query {
 }
  
 # The Root Mutation for the application
-#type Mutation {
-#    writePost(content: String!) : Post!
-#}
+type Mutation {
+    writePost(content: String!): Post!
+    updatePost(id: Int!, content: String!): Post!
+    removePost(id: Int!): Int!
+}

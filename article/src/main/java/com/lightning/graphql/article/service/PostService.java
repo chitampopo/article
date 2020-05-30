@@ -21,7 +21,7 @@ public class PostService {
     }
     
     @Transactional
-    public Post createPost(final String content) {
+    public Post writePost(final String content) {
         final Post post = new Post();
         post.setContent(content);
         return this.postRepo.save(post);
@@ -36,4 +36,17 @@ public class PostService {
     public Optional<Post> getPost(final int id) {
         return this.postRepo.findById(id);
     }
+
+    @Transactional
+	public Integer removePost(Integer id) {
+		this.postRepo.deleteById(id);
+		return id;
+	}
+    
+    @Transactional
+	public Post updatePost(Integer id, String content) {
+		Post post = this.postRepo.getOne(id);
+		post.setContent(content);
+		return post;
+	}
 }
